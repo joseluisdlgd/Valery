@@ -1,51 +1,65 @@
- 
 @media (max-width: 700px) {
  
-  /* ---- BASE ---- */
   body {
     font-size: 14px;
     overflow: hidden;
     background: #fcfcfc;
   }
  
-  /* ---- TEXTO DE DEDICATORIA — zona superior ---- */
+  /* =====================
+     TEXTO — arriba, scrolleable
+  ===================== */
   .dedication-text {
-    position: fixed;
-    top: 2vw;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 92vw;
-    max-width: 92vw;
-    min-width: 0;
-    max-height: 30vh;
-    overflow: hidden;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    padding: 10px 12px 8px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 14px;
-    box-shadow: 0 2px 18px #e6002618;
-    border: 1.5px solid #e6002622;
-    z-index: 8;
-    pointer-events: auto;
+    position: fixed !important;
+    top: 10px !important;
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    /* Ocupa ~38% de la pantalla */
+    height: 36vh !important;
+    max-height: 36vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+ 
+    font-size: 0.75rem !important;
+    line-height: 1.55 !important;
+    padding: 10px 12px 8px !important;
+    background: rgba(255,255,255,0.97) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 2px 18px #e6002618 !important;
+    border: 1.5px solid #e6002630 !important;
+    z-index: 8 !important;
+    pointer-events: auto !important;
+ 
+    /* reset estilos desktop */
+    transform: none !important;
   }
  
   .signature {
-    font-size: 1.0rem;
-    margin-top: 6px;
+    position: static !important;
+    display: block !important;
+    margin: 8px 0 2px 0 !important;
+    font-size: 0.95rem !important;
+    font-family: cursive, sans-serif !important;
+    transform: none !important;
   }
  
-  /* ---- ÁRBOL — zona central ---- */
+  /* =====================
+     ÁRBOL — zona media
+  ===================== */
   .tree-container {
     position: fixed !important;
-    width: 54vw !important;
-    height: 54vw !important;
-    max-width: 230px !important;
-    max-height: 230px !important;
+    width: 46vw !important;
+    height: 46vw !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    /* centrado horizontal, anclado con bottom */
     top: auto !important;
-    bottom: 22vw !important;
+    bottom: 30vw !important;
     left: 50% !important;
-    transform: translateX(-50%) !important;
+    transform: translateX(-62%) !important;
     z-index: 2 !important;
   }
  
@@ -54,30 +68,58 @@
     height: 100% !important;
   }
  
-  /* Al moverse, en móvil el árbol no se desplaza al costado */
   .tree-container svg.move-and-scale {
-    transform: scale(1.08) !important;
+    transform: scale(1.06) !important;
     transition: transform 1.2s cubic-bezier(.77,0,.18,1) !important;
   }
  
-  /* ---- POOH — al lado derecho del árbol ---- */
+  /* =====================
+     POOH — derecha del árbol
+  ===================== */
   #pooh-canvas {
     position: fixed !important;
-    bottom: 14vw !important;
+    bottom: 30vw !important;
     left: 50% !important;
-    transform: translateX(22%) !important;
-    width: 22vw !important;
-    height: 25vw !important;
-    max-width: 90px !important;
+    transform: translateX(10%) !important;
+    width: 20vw !important;
+    height: 23vw !important;
+    max-width: 88px !important;
     max-height: 100px !important;
     z-index: 5 !important;
   }
  
-  /* ---- FOTOS — fila horizontal zona inferior ---- */
+  /* =====================
+     CONTADOR — entre árbol y fotos
+  ===================== */
+  .countdown {
+    position: fixed !important;
+    bottom: 22vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 0.65rem !important;
+    min-width: 0 !important;
+    width: auto !important;
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    white-space: nowrap !important;
+    z-index: 6 !important;
+    background: rgba(255,255,255,0.94) !important;
+    box-shadow: 0 2px 10px #e6002614 !important;
+    text-align: center !important;
+  }
+ 
+  .countdown.visible {
+    opacity: 1 !important;
+    transform: translateX(-50%) translateY(0) !important;
+  }
+ 
+  /* =====================
+     FOTOS — fila horizontal abajo
+  ===================== */
   .photo-gallery {
     position: fixed !important;
     flex-direction: row !important;
-    bottom: 2vw !important;
+    bottom: 3vw !important;
     top: auto !important;
     left: 50% !important;
     right: auto !important;
@@ -88,91 +130,87 @@
   }
  
   .photo-frame {
-    width: 20vw !important;
-    height: 20vw !important;
-    max-width: 76px !important;
-    max-height: 76px !important;
-    min-width: 58px !important;
-    min-height: 58px !important;
-    border-radius: 10px !important;
+    width: 25vw !important;
+    height: 25vw !important;
+    max-width: 90px !important;
+    max-height: 90px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    border-radius: 11px !important;
     animation: frame-float 4s ease-in-out infinite !important;
   }
  
+  .photo-frame-1 { animation-delay: 0s !important; }
+  .photo-frame-2 { animation-delay: 1.3s !important; }
+  .photo-frame-3 { animation-delay: 2.6s !important; }
+ 
   .photo-upload-label {
-    height: 70% !important;
+    height: 74% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
  
   .photo-img {
-    height: 70% !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
+    object-position: center top !important;
+    border-radius: 8px 8px 0 0 !important;
   }
  
-  .photo-icon { font-size: 1.1rem !important; }
-  .photo-hint { font-size: 0.5rem !important; }
-  .photo-caption { font-size: 0.5rem !important; padding: 2px 3px !important; }
- 
-  /* ---- COUNTDOWN — entre árbol y fotos ---- */
-  .countdown {
-    position: fixed !important;
-    bottom: 24vw !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    font-size: 0.68rem !important;
-    min-width: 0 !important;
-    width: auto !important;
-    padding: 5px 14px !important;
-    border-radius: 20px !important;
-    white-space: nowrap !important;
-    z-index: 6 !important;
-    background: rgba(255,255,255,0.92) !important;
-    box-shadow: 0 2px 10px #e6002618 !important;
+  .photo-caption {
+    font-size: 0.52rem !important;
+    padding: 2px 3px !important;
+    text-align: center !important;
   }
  
-  .countdown.visible {
-    opacity: 1 !important;
-    transform: translateX(-50%) translateY(0) !important;
-  }
- 
-  /* ---- PÉTALOS — más pequeños en móvil ---- */
+  /* =====================
+     PÉTALOS
+  ===================== */
   .floating-petal {
     width: 10px !important;
-    height: 14px !important;
+    height: 13px !important;
   }
  
-  /* ---- BOTÓN MÚSICA ---- */
+  /* =====================
+     BOTÓN MÚSICA
+  ===================== */
   #music-btn {
-    bottom: 2px !important;
+    bottom: 6px !important;
     right: 8px !important;
-    font-size: 0.75rem !important;
-    padding: 6px 12px !important;
+    font-size: 0.72rem !important;
+    padding: 5px 11px !important;
     border-radius: 18px !important;
+    z-index: 99 !important;
   }
 }
  
-/* Teléfonos muy pequeños */
+/* Pantallas muy pequeñas */
 @media (max-width: 380px) {
   .dedication-text {
+    height: 33vh !important;
     font-size: 0.7rem !important;
-    max-height: 26vh !important;
-    padding: 8px 10px 6px !important;
   }
   .tree-container {
-    width: 50vw !important;
-    height: 50vw !important;
-    bottom: 24vw !important;
+    width: 42vw !important;
+    height: 42vw !important;
+    bottom: 32vw !important;
   }
   #pooh-canvas {
-    width: 20vw !important;
+    bottom: 32vw !important;
+    width: 19vw !important;
     height: 22vw !important;
-    bottom: 17vw !important;
   }
   .photo-frame {
-    width: 22vw !important;
-    height: 22vw !important;
+    width: 26vw !important;
+    height: 26vw !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
   }
   .countdown {
     font-size: 0.6rem !important;
-    bottom: 26vw !important;
+    bottom: 24vw !important;
   }
 }
- 
